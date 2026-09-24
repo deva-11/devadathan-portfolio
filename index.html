@@ -30,6 +30,15 @@
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          },
+          animation: {
+            marquee: 'marquee 25s linear infinite',
           }
         }
       }
@@ -45,11 +54,14 @@
     .dark .glassmorphism {
       background: rgba(15, 23, 42, 0.75);
     }
+    .marquee-container:hover .animate-marquee {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
 
-  <!-- Navigation -->
+  <!-- Header / Navigation -->
   <header class="fixed top-0 left-0 right-0 z-50 glassmorphism border-b border-slate-200/50 dark:border-slate-800/50">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="font-display font-bold text-2xl tracking-tight text-slate-900 dark:text-white">
@@ -57,6 +69,7 @@
       </a>
       
       <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#press" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Press & Media</a>
         <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition">About</a>
         <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Experience</a>
         <a href="#research" class="hover:text-brand-600 dark:hover:text-brand-400 transition">Research</a>
@@ -76,8 +89,66 @@
     </div>
   </header>
 
+  <!-- Image Marquee Section (Press Highlights) -->
+  <section id="press" class="pt-28 pb-6 overflow-hidden bg-slate-100/70 dark:bg-slate-900/40 border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-6 mb-4 flex items-center justify-between">
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+        Featured In The News & Press Coverage
+      </span>
+      <span class="text-xs text-slate-400 hidden sm:inline">(Hover to pause)</span>
+    </div>
+
+    <!-- Infinite Scroll Container -->
+    <div class="relative w-full overflow-hidden marquee-container py-2">
+      <!-- Gradient Fades on edges -->
+      <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 z-10 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 z-10 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent pointer-events-none"></div>
+
+      <div class="flex w-max animate-marquee space-x-6">
+        <!-- Original Set -->
+        <div class="flex space-x-6">
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 135950.jpg" alt="The Indian Express - Smart India Hackathon 2022 Winner" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140116.jpg" alt="The Hans India - CMRIT Team Wins Smart India Hackathon" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140222.jpg" alt="Press Release - Award Presentation at SIH 2022" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140250.png" alt="Inshorts - Bengaluru Students Win Smart India Hackathon 2022" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140430.png" alt="NDTV Education - Smart India Hackathon 2022 Winners" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- Duplicate Set for Seamless Loop -->
+        <div class="flex space-x-6">
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 135950.jpg" alt="The Indian Express - Smart India Hackathon 2022 Winner" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140116.jpg" alt="The Hans India - CMRIT Team Wins Smart India Hackathon" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140222.jpg" alt="Press Release - Award Presentation at SIH 2022" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140250.png" alt="Inshorts - Bengaluru Students Win Smart India Hackathon 2022" class="w-full h-full object-cover">
+          </div>
+          <div class="h-44 sm:h-52 w-80 sm:w-96 rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex-shrink-0 transition hover:scale-[1.02]">
+            <img src="Screenshot 2026-09-24 140430.png" alt="NDTV Education - Smart India Hackathon 2022 Winners" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Hero Section -->
-  <section id="about" class="pt-36 pb-20 px-6 max-w-7xl mx-auto min-h-[85vh] flex flex-col justify-center">
+  <section id="about" class="pt-16 pb-20 px-6 max-w-7xl mx-auto min-h-[75vh] flex flex-col justify-center">
     <div class="max-w-3xl">
       <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800 text-brand-700 dark:text-brand-300 text-xs font-semibold mb-6">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -348,37 +419,37 @@
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-trophy text-amber-500 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">1st Place — Smart India Hackathon</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">National 2022 winner among 7,531 participants for the Water Availability-Based Crop Recommendation project.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">National 2022 winner among 7,531 participants for the Water Availability-Based Crop Recommendation project[cite: 1, 2, 3, 4, 5, 6].</p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-star text-brand-500 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">Star of the Quarter</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recognized at Zelis Healthcare (November 2024) for operational excellence and analytics delivery.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recognized at Zelis Healthcare (November 2024) for operational excellence and analytics delivery[cite: 1].</p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-earth-africa text-emerald-500 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">UNESCO International Hackathon</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Represented India at the UNESCO India-Africa International Hackathon in 2022.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Represented India at the UNESCO India-Africa International Hackathon in 2022[cite: 1].</p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-book-open text-indigo-500 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">IEEE Research Publications</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Published 2 research papers in IEEE IDCIoT 2023 & CONIT 2023 conferences on automated hydroponics and crop analysis.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Published 2 research papers in IEEE IDCIoT 2023 & CONIT 2023 conferences on automated hydroponics and crop analysis[cite: 1].</p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-lightbulb text-amber-400 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">Published Patents</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Published two patents: Long Handle Loose Tea Infuser Strainer & Extendable Cooking Ladle.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Published two patents: Long Handle Loose Tea Infuser Strainer & Extendable Cooking Ladle[cite: 1].</p>
       </div>
 
       <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-6 rounded-2xl">
         <i class="fa-solid fa-award text-rose-500 text-2xl mb-4"></i>
         <h3 class="font-bold text-slate-900 dark:text-white">KSTCSC Scholarship & Medals</h3>
-        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recipient of Karnataka State Council for Science and Technology Scholarship (2023) & 2nd Place in Smart India Hackathon 2020.</p>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Recipient of Karnataka State Council for Science and Technology Scholarship (2023) & 2nd Place in Smart India Hackathon 2020[cite: 1].</p>
       </div>
     </div>
   </section>
@@ -389,7 +460,7 @@
       <p>© 2026 Devadathan Menon. All rights reserved.</p>
       <div class="flex space-x-6">
         <a href="mailto:devamenon76@gmail.com" class="hover:text-slate-800 dark:hover:text-slate-300">Email</a>
-        <a href="#about" class="hover:text-slate-800 dark:hover:text-slate-300">Back to Top</a>
+        <a href="#press" class="hover:text-slate-800 dark:hover:text-slate-300">Back to Top</a>
       </div>
     </div>
   </footer>
